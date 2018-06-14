@@ -20,12 +20,12 @@ fi
 sudo mkdir -p /var/lib/inboxapp/parts
 sudo chmod -R 777 /var/lib/inboxapp
 
-source activate py27
+source activate py276
 pip uninstall -y python-dateutil
 pip uninstall -y flanker
 pip uninstall -y imapclient
 
-conda env export -n py27 > py27.yaml
+conda env export -n py276 > py276.yaml
 pip install -r requirements.txt
 pip install -e .
-conda env export -n py27 > py27.yaml
+conda env export -n py276 > py276.yaml
