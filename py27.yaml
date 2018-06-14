@@ -42,7 +42,7 @@ dependencies:
     - cryptography==2.2.2
     - dnspython==1.11.1
     - docutils==0.14
-    - enum34==1.0.4
+    - enum34==1.1.6
     - execnet==1.5.0
     - faulthandler==2.3
     - flake8==2.1.0
@@ -58,7 +58,7 @@ dependencies:
     - gevent-openssl==1.2
     - gevent-socketio==0.3.5rc2
     - gevent-websocket==0.10.1
-    - greenlet==0.4.2
+    - greenlet==0.4.13
     - gunicorn==19.4.5
     - guppy==0.1.10
     - hiredis==0.1.5
