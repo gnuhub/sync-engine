@@ -32,7 +32,7 @@ pyflakes==0.7.3
 pylint==1.5.1
 html2text==2014.9.8
 python-magic==0.4.6
-greenlet==0.4.2
+greenlet==0.4.13
 PyMySQL==0.6.2
 click==2.4
 faulthandler==2.3
@@ -43,7 +43,7 @@ uritemplate==0.6
 icalendar==3.9.1
 pynacl==0.3.0
 pyaml==14.05.7
-enum34==1.0.4
+enum34==1.1.6
 msgpack-python==0.4.2
 guppy==0.1.10
 redis==2.10.3
