@@ -69,6 +69,7 @@ dependencies:
     - iconv==1.0
     - idna==2.7
     - imapclient==2.0.0
+    - inbox-sync==17.3.8
     - ipaddress==1.0.22
     - ipython==1.0.0
     - itsdangerous==0.24
