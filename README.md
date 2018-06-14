@@ -4,6 +4,20 @@ The Nylas Sync Engine provides a RESTful API on top of a powerful email sync pla
 
 Need help? [Join our Slack channel ![Slack Invite Button](http://slack-invite.nylas.com/badge.svg)](http://slack-invite.nylas.com)
 
+### installation and setup on mac
+
+1. `git@github.com:gnuhub/sync-engine.git`
+
+2. `cd sync-engine`
+
+3. `./mac.setup.sh`
+
+4. ```PYTHONPATH=`pwd` NYLAS_ENV=dev bin/inbox-start```
+
+5. ```PYTHONPATH=`pwd` NYLAS_ENV=dev bin/inbox-auth youemail@gmail.com```
+
+6. ```PYTHONPATH=`pwd` NYLAS_ENV=dev bin/inbox-api -p 9999```
+
 
 ### Installation and Setup
 
