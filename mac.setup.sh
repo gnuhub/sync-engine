@@ -12,6 +12,7 @@ ln -s /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock /tmp/mysql.sock
 source activate py27
 pip uninstall -y python-dateutil
 pip uninstall -y flanker
+pip uninstall -y imapclient
 
 conda env export -n py27 > py27.yaml
 pip install -r requirements.txt
