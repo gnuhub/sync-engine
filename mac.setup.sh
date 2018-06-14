@@ -3,6 +3,8 @@
 brew install lua
 # https://github.com/gnuhub/sync-engine/issues/3
 brew install mysql-connector-c
+# https://github.com/gnuhub/sync-engine/issues/8
+sudo ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 source activate py27
 pip uninstall -y python-dateutil
