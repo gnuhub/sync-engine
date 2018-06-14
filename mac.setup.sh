@@ -9,6 +9,9 @@ sudo ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 # https://github.com/gnuhub/sync-engine/issues/9#issuecomment-397225469
 ln -s /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock /tmp/mysql.sock
 
+sudo mkdir -p /var/lib/inboxapp/parts
+sudo chmod -R 777 /var/lib/inboxapp
+
 source activate py27
 pip uninstall -y python-dateutil
 pip uninstall -y flanker
