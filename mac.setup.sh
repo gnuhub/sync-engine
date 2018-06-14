@@ -5,6 +5,9 @@ brew install lua
 brew install mysql-connector-c
 
 source activate py27
+pip uninstall -y python-dateutil
+pip uninstall -y flanker
+
 conda env export -n py27 > py27.yaml
 pip install -r requirements.txt
 pip install -e .
