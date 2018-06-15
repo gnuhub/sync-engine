@@ -50,7 +50,7 @@ if you are not in china
 ### 6
 
 ```
-./6.mac.engin.start.sh
+./6.mac.engine.start.sh
 ```
 
 ### 7
