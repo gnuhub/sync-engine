@@ -6,6 +6,29 @@ Need help? [Join our Slack channel ![Slack Invite Button](http://slack-invite.ny
 
 ### installation and setup on mac
 
+#### install python
+
+0. install python
+
+```
+cd ~
+mkdir tmp
+cd tmp
+file=Anaconda3-5.2.0-MacOSX-x86_64.sh
+if [ ! -f $file ];then
+    wget https://repo.anaconda.com/archive/$file
+fi
+
+if [ ! -d ~/anaconda ];then
+    bash $file -b -p ~/anaconda
+fi
+export PATH=${HOME}/anaconda/bin/:$PATH
+if [ ! -d ${HOME}/anaconda/envs/py27 ];then
+  conda create -y -vvv -n py27 python=2.7
+fi
+
+```
+
 1. `git@github.com:gnuhub/sync-engine.git`
 
 2. `cd sync-engine`
