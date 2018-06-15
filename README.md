@@ -1,4 +1,4 @@
-## start Nylas Sync Engine  on Mac
+## Start Nylas Sync Engine  on Mac
 
 ### 0
 
