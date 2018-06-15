@@ -44,7 +44,7 @@ if you are not in china
 ### 5 the mysql user is root and the password is empty using XAMPP MYSQL server
 
 ```
-5.mac.db.setup.sh
+./5.mac.db.setup.sh
 ```
 
 ### 6
