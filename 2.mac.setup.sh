@@ -7,7 +7,8 @@ brew services start redis
 brew install lua
 
 # https://github.com/gnuhub/sync-engine/issues/3
-brew install mysql-connector-c
+# NOT needed if you have installed MariaDB separately. (NOT in XAMPP)
+# brew install mysql-connector-c
 
 # https://github.com/gnuhub/sync-engine/issues/12
 sudo mkdir -p /var/lib/inboxapp/parts

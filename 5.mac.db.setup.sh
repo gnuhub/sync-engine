@@ -12,3 +12,6 @@ export NYLAS_ENV=dev
 
 ./bin/create-db
 ./bin/create-test-db
+
+# error: + ./bin/create-test-db
+# ERROR 1805 (HY000) at line 1: Column count of mysql.user is wrong. Expected 45, found 46. The table is probably corrupted

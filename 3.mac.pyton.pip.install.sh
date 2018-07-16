@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export PATH=${HOME}/anaconda/bin/:$PATH
+export PATH=/usr/local/bin/:${HOME}/anaconda/bin/:$PATH
 source activate py27
 pip uninstall -y python-dateutil
 pip uninstall -y flanker

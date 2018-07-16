@@ -10,4 +10,7 @@ source activate py27
 export PYTHONPATH=$CMD_PATH
 export NYLAS_ENV=dev
 
+conda install -f lxml
+
+
 ./bin/inbox-start
