@@ -6,6 +6,10 @@ brew services start redis
 # https://github.com/gnuhub/sync-engine/issues/2
 brew install lua
 
+brew install libxml2
+brew install libxslt
+brew link libxml2 --force
+brew link libxslt --force
 # https://github.com/gnuhub/sync-engine/issues/3
 #brew install mysql-connector-c
 
