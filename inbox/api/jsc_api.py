@@ -93,12 +93,13 @@ def suspend_sync():
         account._sync_status['sync_disabled_reason'] = 'suspend_account API endpoint called'
         account._sync_status['sync_disabled_on'] = datetime.utcnow()
         account._sync_status['sync_disabled_by'] = 'api'
+        account._sync_status['sync_stop'] = 'success'
 
         db_session.commit()
 
         shared_queue = shared_sync_event_queue_for_zone(config.get('ZONE'))
         shared_queue.send_event({ 'event': 'sync_suspended', 'id': account.id })
-        
+
         resp = json.dumps(account._sync_status, default=json_util.default)
         return make_response((resp, 200, {'Content-Type': 'application/json'}))
 
