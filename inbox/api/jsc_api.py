@@ -98,8 +98,9 @@ def suspend_sync():
 
         shared_queue = shared_sync_event_queue_for_zone(config.get('ZONE'))
         shared_queue.send_event({ 'event': 'sync_suspended', 'id': account.id })
-
-    return make_response(('', 204, {}))
+        
+        resp = json.dumps(account._sync_status, default=json_util.default)
+        return make_response((resp, 200, {'Content-Type': 'application/json'}))
 
 @app.route('/enable_sync', methods=['POST'])
 def enable_sync():
