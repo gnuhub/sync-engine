@@ -121,7 +121,7 @@ def enable_sync():
             account = db_session.query(Account).with_for_update() \
                 .filter(Account.id == account_id).one()
 
-            lease_period = timedelta(seconds=5)
+            lease_period = timedelta(seconds=1)
             time_ended = account.sync_status.get('sync_end_time')
             time_now = datetime.utcnow()
 
