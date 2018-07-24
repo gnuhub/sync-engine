@@ -26,7 +26,12 @@ def contact_subquery(db_session, namespace_id, email_address, field):
 def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
             any_email, thread_public_id, started_before, started_after,
             last_message_before, last_message_after, filename, in_, unread,
-            starred, limit, offset, view, db_session):
+            starred, limit, offset, view, db_session, thread_ids, ins_):
+    """
+    ins_ and thread_ids was added for LeadWerks only. it's not officially supported.
+
+    we can pass threads ids separated with comma. e.g thread_ids=1,2,3
+    """
 
     if view == 'count':
         query = db_session.query(func.count(Thread.id))
@@ -119,6 +124,27 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
             Message.namespace_id == namespace_id,
             Message.is_starred == starred).subquery()
         query = query.filter(Thread.id.in_(starred_query))
+
+    # Added as of 2018.7.24 for LeadWerks only
+    if thread_ids is not None:
+        thread_ids_array = thread_ids.split(',')
+        query = query.filter(Thread.id.in_(thread_ids_array))
+
+    # Added as of 2018.7.24 for LeadWerks only
+    if ins_ is not None:
+        ins_array = ins_.split(',')
+        category_filters = [Category.name.in_(ins_array), Category.display_name.in_(ins_array)]
+        try:
+            valid_public_id(in_)
+            category_filters.append(Category.public_id.in_(ins_array))
+        except InputError:
+            pass
+        category_query = db_session.query(Message.thread_id). \
+            prefix_with('STRAIGHT_JOIN'). \
+            join(Message.messagecategories).join(MessageCategory.category). \
+            filter(Category.namespace_id == namespace_id,
+                   or_(*category_filters)).subquery()
+        query = query.filter(Thread.id.in_(category_query))
 
     if view == 'count':
         return {"count": query.one()[0]}
