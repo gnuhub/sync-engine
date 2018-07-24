@@ -252,7 +252,8 @@ def one_account():
 #
 # Threads
 #
-# ins and thread_ids was added for LeadWerks only. it's not officially supported.
+# ins and thread_ids and not_thread_ids were added for LeadWerks only.
+# they are not officially supported.
 #
 @app.route('/threads/')
 def thread_query_api():
@@ -277,6 +278,7 @@ def thread_query_api():
     g.parser.add_argument('view', type=view, location='args')
     g.parser.add_argument('thread_ids', type=bounded_str, location='args')
     g.parser.add_argument('ins', type=bounded_str, location='args')
+    g.parser.add_argument('not_thread_ids', type=bounded_str, location='args')
 
     args = strict_parse_args(g.parser, request.args)
 
@@ -302,7 +304,8 @@ def thread_query_api():
         view=args['view'],
         db_session=g.db_session,
         thread_ids=args['thread_ids'],
-        ins_=args['ins'])
+        ins_=args['ins'],
+        not_thread_ids=args['not_thread_ids'])
 
     # Use a new encoder object with the expand parameter set.
     encoder = APIEncoder(g.namespace.public_id,

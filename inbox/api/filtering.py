@@ -26,9 +26,11 @@ def contact_subquery(db_session, namespace_id, email_address, field):
 def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
             any_email, thread_public_id, started_before, started_after,
             last_message_before, last_message_after, filename, in_, unread,
-            starred, limit, offset, view, db_session, thread_ids, ins_):
+            starred, limit, offset, view, db_session, thread_ids, ins_,
+            not_thread_ids):
     """
-    ins_ and thread_ids was added for LeadWerks only. it's not officially supported.
+    ins_ and thread_ids and not_thread_ids were added for LeadWerks only.
+    they are not officially supported.
 
     we can pass threads ids separated with comma. e.g thread_ids=1,2,3
     """
@@ -145,6 +147,11 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
             filter(Category.namespace_id == namespace_id,
                    or_(*category_filters)).subquery()
         query = query.filter(Thread.id.in_(category_query))
+
+    # Added as of 2018.7.24 for LeadWerks only
+    if not_thread_ids is not None:
+        not_thread_ids_array = not_thread_ids.split(',')
+        query = query.filter(Thread.id.notin_(not_thread_ids_array))
 
     if view == 'count':
         return {"count": query.one()[0]}
