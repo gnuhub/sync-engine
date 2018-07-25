@@ -26,8 +26,8 @@ def contact_subquery(db_session, namespace_id, email_address, field):
 def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
             any_email, thread_public_id, started_before, started_after,
             last_message_before, last_message_after, filename, in_, unread,
-            starred, limit, offset, view, db_session, thread_ids, ins_,
-            not_thread_ids):
+            starred, limit, offset, view, db_session, thread_public_ids, ins_,
+            not_thread_public_ids):
     """
     ins_ and thread_ids and not_thread_ids were added for LeadWerks only.
     they are not officially supported.
@@ -128,9 +128,9 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
         query = query.filter(Thread.id.in_(starred_query))
 
     # Added as of 2018.7.24 for LeadWerks only
-    if thread_ids is not None:
-        thread_ids_array = thread_ids.split(',')
-        query = query.filter(Thread.id.in_(thread_ids_array))
+    if thread_public_ids is not None:
+        thread_public_ids_array = thread_public_ids.split(',')
+        query = query.filter(Thread.public_id.in_(thread_public_ids_array))
 
     # Added as of 2018.7.24 for LeadWerks only
     if ins_ is not None:
@@ -149,9 +149,9 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
         query = query.filter(Thread.id.in_(category_query))
 
     # Added as of 2018.7.24 for LeadWerks only
-    if not_thread_ids is not None:
-        not_thread_ids_array = not_thread_ids.split(',')
-        query = query.filter(Thread.id.notin_(not_thread_ids_array))
+    if not_thread_public_ids is not None:
+        not_thread_public_ids_array = not_thread_public_ids.split(',')
+        query = query.filter(Thread.public_id.notin_(not_thread_public_ids_array))
 
     if view == 'count':
         return {"count": query.one()[0]}
