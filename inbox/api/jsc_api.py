@@ -93,13 +93,15 @@ def suspend_sync():
         account._sync_status['sync_disabled_reason'] = 'suspend_account API endpoint called'
         account._sync_status['sync_disabled_on'] = datetime.utcnow()
         account._sync_status['sync_disabled_by'] = 'api'
+        account._sync_status['sync_status'] = 0
 
         db_session.commit()
 
         shared_queue = shared_sync_event_queue_for_zone(config.get('ZONE'))
         shared_queue.send_event({ 'event': 'sync_suspended', 'id': account.id })
 
-    return make_response(('', 204, {}))
+        resp = json.dumps(account._sync_status, default=json_util.default)
+        return make_response((resp, 200, {'Content-Type': 'application/json'}))
 
 @app.route('/enable_sync', methods=['POST'])
 def enable_sync():
@@ -119,7 +121,7 @@ def enable_sync():
             account = db_session.query(Account).with_for_update() \
                 .filter(Account.id == account_id).one()
 
-            lease_period = timedelta(minutes=1)
+            lease_period = timedelta(seconds=5)
             time_ended = account.sync_status.get('sync_end_time')
             time_now = datetime.utcnow()
 
