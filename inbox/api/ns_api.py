@@ -276,9 +276,9 @@ def thread_query_api():
     g.parser.add_argument('unread', type=strict_bool, location='args')
     g.parser.add_argument('starred', type=strict_bool, location='args')
     g.parser.add_argument('view', type=view, location='args')
-    g.parser.add_argument('thread_ids', type=bounded_str, location='args')
+    g.parser.add_argument('thread_public_ids', type=bounded_str, location='args')
     g.parser.add_argument('ins', type=bounded_str, location='args')
-    g.parser.add_argument('not_thread_ids', type=bounded_str, location='args')
+    g.parser.add_argument('not_thread_public_ids', type=bounded_str, location='args')
 
     args = strict_parse_args(g.parser, request.args)
 
@@ -303,9 +303,9 @@ def thread_query_api():
         offset=args['offset'],
         view=args['view'],
         db_session=g.db_session,
-        thread_ids=args['thread_ids'],
+        thread_public_ids=args['thread_public_ids'],
         ins_=args['ins'],
-        not_thread_ids=args['not_thread_ids'])
+        not_thread_public_ids=args['not_thread_public_ids'])
 
     # Use a new encoder object with the expand parameter set.
     encoder = APIEncoder(g.namespace.public_id,
