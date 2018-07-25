@@ -279,7 +279,7 @@ def thread_query_api():
     g.parser.add_argument('thread_public_ids', type=bounded_str, location='args')
     g.parser.add_argument('ins', type=bounded_str, location='args')
     g.parser.add_argument('not_thread_public_ids', type=bounded_str, location='args')
-    g.parser.add_argument('has_attachments', type=bounded_str, location='args')
+    g.parser.add_argument('has_attachments', type=strict_bool, location='args')
 
     args = strict_parse_args(g.parser, request.args)
 
