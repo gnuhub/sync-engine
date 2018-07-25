@@ -279,6 +279,7 @@ def thread_query_api():
     g.parser.add_argument('thread_public_ids', type=bounded_str, location='args')
     g.parser.add_argument('ins', type=bounded_str, location='args')
     g.parser.add_argument('not_thread_public_ids', type=bounded_str, location='args')
+    g.parser.add_argument('has_attachments', type=bounded_str, location='args')
 
     args = strict_parse_args(g.parser, request.args)
 
@@ -305,7 +306,8 @@ def thread_query_api():
         db_session=g.db_session,
         thread_public_ids=args['thread_public_ids'],
         ins_=args['ins'],
-        not_thread_public_ids=args['not_thread_public_ids'])
+        not_thread_public_ids=args['not_thread_public_ids'],
+        has_attachments=args['has_attachments'])
 
     # Use a new encoder object with the expand parameter set.
     encoder = APIEncoder(g.namespace.public_id,
