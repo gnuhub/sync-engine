@@ -27,7 +27,7 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
             any_email, thread_public_id, started_before, started_after,
             last_message_before, last_message_after, filename, in_, unread,
             starred, limit, offset, view, db_session, thread_public_ids, ins_,
-            not_thread_public_ids):
+            not_thread_public_ids, has_attachments):
     """
     ins_ and thread_ids and not_thread_ids were added for LeadWerks only.
     they are not officially supported.
@@ -152,6 +152,9 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
     if not_thread_public_ids is not None:
         not_thread_public_ids_array = not_thread_public_ids.split(',')
         query = query.filter(Thread.public_id.notin_(not_thread_public_ids_array))
+
+    if has_attachments is not None:
+        query = query.filter(Thread.has_attachments == False)
 
     if view == 'count':
         return {"count": query.one()[0]}
