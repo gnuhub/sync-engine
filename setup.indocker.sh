@@ -217,6 +217,7 @@ mkdir -p /etc/inboxapp
 chown $SUDO_UID:$SUDO_GID /etc/inboxapp
 
 color '35;1' 'Copying default development configuration to /etc/inboxapp'
+mkdir -p /etc/inboxapp
 src=./etc/config-dev.json
 dest=/etc/inboxapp/config.json
 if [ ! -f $dest ]; then
@@ -312,6 +313,6 @@ chown $SUDO_UID:$SUDO_GID /etc/inboxapp
 git config branch.master.rebase true
 
 # Set proper timezone
-echo 'UTC' | sudo tee /etc/timezone
+echo 'UTC' | tee /etc/timezone
 
 color '35;1' 'Done!.'
