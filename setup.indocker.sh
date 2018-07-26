@@ -289,8 +289,7 @@ if ! $prod; then
         fi
     fi
 
-    mysqld_safe &
-    sleep 10
+   
 
 fi
 
