@@ -217,6 +217,7 @@ mkdir -p /etc/inboxapp
 chown $SUDO_UID:$SUDO_GID /etc/inboxapp
 
 color '35;1' 'Copying default development configuration to /etc/inboxapp'
+set -x
 mkdir -p /etc/inboxapp
 src=./etc/config-dev.json
 dest=/etc/inboxapp/config.json
