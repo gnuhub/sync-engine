@@ -1,7 +1,12 @@
 stages:
   - build
+  - release
 
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  
 build:
   stage: build
   script:
-    - ./1.build.sh
+    - ./2.release.sh
+
