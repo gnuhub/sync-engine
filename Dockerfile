@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 
 ADD . /src
-RUN /src/setup.sh
+RUN /src/setup.indocker.sh
 RUN /src/docker.setup.sh
 
 ADD api.sv.conf /etc/supervisor/conf.d/
