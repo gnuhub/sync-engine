@@ -70,7 +70,7 @@ echo "mysql-community-server mysql-community-server/re-root-pass password root";
 echo "mysql-community-server mysql-community-server/remove-test-db select false"; \
 echo "mysql-server mysql-server/root_password password root";
 echo "mysql-server mysql-server/root_password_again password root";
-  } | sudo debconf-set-selections
+  } | debconf-set-selections
 
 
 
