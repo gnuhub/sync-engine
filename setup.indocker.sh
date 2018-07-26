@@ -292,8 +292,6 @@ if ! $prod; then
     mysqld_safe &
     sleep 10
 
-    env PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-db
-    env PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-test-db
 fi
 
 if [[ $(mysql --version) != *"5.6"* ]]

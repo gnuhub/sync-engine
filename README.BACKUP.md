@@ -110,3 +110,10 @@ Note that passwords and OAuth tokens are stored unencrypted in the local MySQL d
 ## License
 
 This code is free software, licensed under the The GNU Affero General Public License (AGPL). See the `LICENSE` file for more details.
+
+```
+ mysqld_safe &
+    sleep 10
+env PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-db
+env PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-test-db
+```
