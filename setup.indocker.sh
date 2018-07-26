@@ -5,6 +5,10 @@ set -e
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 
+SUDO_UID=0
+SUDO_GID=0
+
+
 prod=false
 while getopts "p" opt; do
     case $opt in
