@@ -1,7 +1,5 @@
 FROM ubuntu:14.04.1
 
-services:
-  - docker:dind
 
 ADD . /src
 ADD api.sv.conf /etc/supervisor/conf.d/
