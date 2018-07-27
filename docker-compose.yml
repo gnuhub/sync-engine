@@ -1,0 +1,5 @@
+sync-engine:
+  image: 'gnuhub/sync-engine:latest'
+  restart: always
+  ports:
+    - '9999:9999'
