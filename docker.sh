@@ -3,9 +3,15 @@ set -x
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 
+
 apt-get clean -y
 apt-get update -y
 apt-get install -f -y
+apt-get install lsb-core -y
+wget https://repo.mysql.com/mysql-apt-config_0.8.9-1_all.deb
+
+dpkg -i mysql-apt-config_0.8.9-1_all.deb
+apt-get update -y
 apt-get install default-libmysqlclient-dev -y
 apt-get install mysql-client -y
 
