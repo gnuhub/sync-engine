@@ -312,7 +312,7 @@ cp etc/config-dev.json /etc/inboxapp/config.json
 cp etc/secrets-dev.yml /etc/inboxapp/secrets.yml
 chown $SUDO_UID:$SUDO_GID /etc/inboxapp
 
-git config branch.master.rebase true
+#git config branch.master.rebase true
 
 # Set proper timezone
 echo 'UTC' | tee /etc/timezone
