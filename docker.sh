@@ -3,6 +3,12 @@ set -x
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 
+apt-get -y install python-setuptools
+easy_install supervisor
+mkdir -p /var/log/supervisor
+# create directory for child images to store configuration in
+mkdir -p /etc/supervisor/conf.d
+
 conda create -y -vvv -n py27 python=2.7
 
 echo "---------check anaconda installation--------------"
@@ -25,8 +31,3 @@ mkdir -p /var/lib/inboxapp/parts
 pip install -r requirements.txt
 pip install -e .
 
-export PYTHONPATH=$CMD_PATH
-export NYLAS_ENV=dev
-
-./bin/create-db
-./bin/create-test-db
