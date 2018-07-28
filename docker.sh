@@ -7,11 +7,9 @@ apt-get clean -y
 apt-get update -y
 apt-get install -f -y
 
-apt-get -y install python-setuptools
-easy_install supervisor
-mkdir -p /var/log/supervisor
-# create directory for child images to store configuration in
-mkdir -p /etc/supervisor/conf.d
+
+
+
 
 conda create -y -vvv -n py27 python=2.7
 
@@ -25,6 +23,11 @@ echo "---------source activate py27---------------------"
 source activate py27
 which python
 python --version
+
+pip install supervisor
+mkdir -p /var/log/supervisor
+# create directory for child images to store configuration in
+mkdir -p /etc/supervisor/conf.d
 
 echo "setup py27 using Anaconda Done"
 
