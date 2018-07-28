@@ -12,7 +12,7 @@ apt-get install libmysqlclient-dev mysql-client -y
 
 
 
-conda create -y -vvv -n py27 python=2.7
+conda create -y -n py27 python=2.7
 
 echo "---------check anaconda installation--------------"
 which python
