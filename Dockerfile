@@ -13,4 +13,4 @@ ADD engine.sv.conf /etc/supervisor/conf.d/
 
 
 
-CMD supervisord -c /etc/supervisor.conf
+CMD /src/supervisord.start.sh
