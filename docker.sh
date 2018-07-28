@@ -6,6 +6,7 @@ cd $CMD_PATH
 apt-get clean -y
 apt-get update -y
 apt-get install -f -y
+apt-get install libmysqlclient-dev mysql-client -y
 
 
 
