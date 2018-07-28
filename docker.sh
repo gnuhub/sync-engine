@@ -3,6 +3,10 @@ set -x
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 
+apt-get clean -y
+apt-get update -y
+apt-get install -f -y
+
 apt-get -y install python-setuptools
 easy_install supervisor
 mkdir -p /var/log/supervisor
