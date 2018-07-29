@@ -87,3 +87,5 @@ setup/
 
 # Pycharm
 .idea/
+
+*.deb
