@@ -4,8 +4,6 @@ source activate py27
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 # after mysql started
-sleep 5
-PYTHONPATH=`pwd` NYLAS_ENV=dev ./bin/create-db
-PYTHONPATH=`pwd` NYLAS_ENV=dev ./bin/create-test-db
-
+sleep 2
+PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-db
 PYTHONPATH=`pwd` NYLAS_ENV=dev ./bin/inbox-start
