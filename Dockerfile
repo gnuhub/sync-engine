@@ -1,5 +1,5 @@
-FROM daocloud.io/gnuhub3/python_docker:latest
-
+#FROM daocloud.io/gnuhub3/python_docker:latest
+FROM sync-engine:aacc004d
 
 
 
