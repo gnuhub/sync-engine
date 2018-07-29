@@ -7,7 +7,7 @@ mysql:
   volumes:
   - /Volumes/data/docker/mysql/data:/var/lib/mysql
   environment:
-  - MYSQL_ROOT_PASSWORD=gnuhub
+  - MYSQL_ROOT_PASSWORD=root
 sync-engine:
   image: 'gnuhub/sync-engine:latest'
   restart: always
