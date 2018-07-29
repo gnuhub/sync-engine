@@ -9,7 +9,7 @@ mysql:
   environment:
   - MYSQL_ROOT_PASSWORD=root
 sync-engine:
-  image: 'gnuhub/sync-engine:latest'
+  image: gnuhub/sync-engine:latest
   restart: always
   ports:
     - '9999:9999'
