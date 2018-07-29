@@ -8,6 +8,7 @@ apt-get clean -y
 apt-get update -y
 apt-get install -f -y
 apt-get install lsb-core -y
+apt-get install gnupg -y
 if [ ! -f mysql-apt-config_0.8.9-1_all.deb ];then
 wget https://repo.mysql.com/mysql-apt-config_0.8.9-1_all.deb
 fi
