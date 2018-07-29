@@ -42,7 +42,7 @@ apt-get install -y libtool
 apt-get install -y imagemagick 
 apt-get install -y make
 apt-get install -y tree
-apt-get install -y lua5.2 
+apt-get install -y lua5.2 liblua5.2-dev
 
 apt-get install default-libmysqlclient-dev -y
 apt-get install mysql-client -y
