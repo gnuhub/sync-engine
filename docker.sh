@@ -3,6 +3,11 @@ set -x
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 
+# if [ ! -f oh-my-tuna.py ];then
+# wget wget https://tuna.moe/oh-my-tuna/oh-my-tuna.py
+# fi
+# python oh-my-tuna.py
+
 
 apt-get clean -y
 apt-get update -y
@@ -15,6 +20,9 @@ fi
 dpkg -i mysql-apt-config_0.8.9-1_all.deb
 apt-get update -y
 
+apt-cache search mysql
+apt-cache search lua
+
 apt-get install -y build-essential
 apt-get install -y m4
 apt-get install -y flex
@@ -26,7 +34,6 @@ apt-get install -y libtool
 apt-get install -y pkg-config
 apt-get install -y openssl 
 apt-get install -y curl 
-apt-get install -y libreadline6 
 apt-get install -y git 
 apt-get install -y zlib1g 
 apt-get install -y autoconf 
@@ -35,8 +42,8 @@ apt-get install -y libtool
 apt-get install -y imagemagick 
 apt-get install -y make
 apt-get install -y tree
-apt-get install -y gdb
 apt-get install lua -y
+
 apt-get install default-libmysqlclient-dev -y
 apt-get install mysql-client -y
 
