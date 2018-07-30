@@ -8,9 +8,9 @@ cd $CMD_PATH
 # fi
 # python oh-my-tuna.py
 
-groupadd syncengine2
-useradd -g syncengine2 -d /home/syncengine2 -m syncengine2
-echo 'syncengine2:gnuhub' |chpasswd
+useradd --create-home --no-log-init --shell /bin/bash syncengine3
+adduser syncengine3 sudo
+echo 'syncengine3:syncengine3' | chpasswd
 
 apt-get clean -y
 apt-get update -y
@@ -78,6 +78,4 @@ echo 'UTC' | tee /etc/timezone
 
 mkdir -p /var/lib/inboxapp/parts
 
-pip install -r requirements.txt
-pip install -e .
 
