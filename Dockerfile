@@ -8,7 +8,4 @@ ADD supervisor.conf /etc/supervisor.conf
 ADD api.sv.conf /etc/supervisor/conf.d/
 ADD engine.sv.conf /etc/supervisor/conf.d/
 
-#RUN groupadd syncengine
-#RUN useradd -g syncengine -m syncengine
-
 CMD /src/supervisord.start.sh

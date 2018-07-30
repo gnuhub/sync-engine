@@ -8,6 +8,9 @@ cd $CMD_PATH
 # fi
 # python oh-my-tuna.py
 
+groupadd syncengine
+useradd -g syncengine -d /home/syncengine -m syncengine
+echo 'syncengine:gnuhub' |chpasswd
 
 apt-get clean -y
 apt-get update -y
