@@ -24,6 +24,8 @@ sync-engine-api:
   image: index.docker.io/gnuhub/sync-engine:latest
   privileged: false
   restart: always
+  ports:
+  - 9998:9999
   links:
   - mysql
   - redis
