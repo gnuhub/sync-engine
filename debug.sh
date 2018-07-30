@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker run  -v ${PWD}:/data daocloud.io/gnuhub3/sync-engine_docker:latest bash /data/docker.sh
+docker run  -v ${PWD}:/data gnuhub/sync-engine:latest /home/syncengine3/supervisord.start.sh
