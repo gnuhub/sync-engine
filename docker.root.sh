@@ -11,6 +11,7 @@ cd $CMD_PATH
 useradd --create-home --no-log-init --shell /bin/bash syncengine3
 adduser syncengine3 sudo
 echo 'syncengine3:syncengine3' | chpasswd
+echo 'root:root' | chpasswd
 
 apt-get clean -y
 apt-get update -y
@@ -46,7 +47,8 @@ apt-get install -y imagemagick
 apt-get install -y make
 apt-get install -y tree
 apt-get install -y lua5.2 liblua5.2-dev
-apt-get install -y libxslt1.1 libxslt1-dev
+apt-get install -y libxslt1.1 
+apt-get install -y libxslt1-dev
 
 apt-get install default-libmysqlclient-dev -y
 apt-get install mysql-client -y
