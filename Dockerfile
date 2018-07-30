@@ -2,7 +2,7 @@ FROM gnuhub/sync-engine:87ab5bee
 
 
 
-ADD docker.sh /src2/docker.sh
+ADD docker.root.sh /src2/docker.root.sh
 RUN /src2/docker.root.sh
 
 USER syncengine3
