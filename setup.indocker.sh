@@ -5,6 +5,10 @@ set -e
 CMD_PATH=$(cd `dirname $0`; pwd)
 cd $CMD_PATH
 
+SUDO_UID=0
+SUDO_GID=0
+
+
 prod=false
 while getopts "p" opt; do
     case $opt in
@@ -70,7 +74,7 @@ echo "mysql-community-server mysql-community-server/re-root-pass password root";
 echo "mysql-community-server mysql-community-server/remove-test-db select false"; \
 echo "mysql-server mysql-server/root_password password root";
 echo "mysql-server mysql-server/root_password_again password root";
-  } | sudo debconf-set-selections
+  } | debconf-set-selections
 
 
 
@@ -217,6 +221,8 @@ mkdir -p /etc/inboxapp
 chown $SUDO_UID:$SUDO_GID /etc/inboxapp
 
 color '35;1' 'Copying default development configuration to /etc/inboxapp'
+set -x
+mkdir -p /etc/inboxapp
 src=./etc/config-dev.json
 dest=/etc/inboxapp/config.json
 if [ ! -f $dest ]; then
@@ -283,11 +289,8 @@ if ! $prod; then
         fi
     fi
 
-    mysqld_safe &
-    sleep 10
+   
 
-    env PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-db
-    env PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-test-db
 fi
 
 if [[ $(mysql --version) != *"5.6"* ]]
@@ -309,9 +312,9 @@ cp etc/config-dev.json /etc/inboxapp/config.json
 cp etc/secrets-dev.yml /etc/inboxapp/secrets.yml
 chown $SUDO_UID:$SUDO_GID /etc/inboxapp
 
-git config branch.master.rebase true
+#git config branch.master.rebase true
 
 # Set proper timezone
-echo 'UTC' | sudo tee /etc/timezone
+echo 'UTC' | tee /etc/timezone
 
 color '35;1' 'Done!.'

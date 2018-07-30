@@ -1,7 +1,7 @@
 {
 "DATABASE_HOSTS": [
     {
-        "HOSTNAME": "localhost",
+        "HOSTNAME": "mysql",
         "PORT": 3306,
         "SHARDS": [
             {
@@ -17,7 +17,7 @@
         ]
     },
     {
-        "HOSTNAME": "127.0.0.1",
+        "HOSTNAME": "mysql",
         "PORT": 3306,
         "SHARDS": [
             {
@@ -49,12 +49,12 @@
 "LOGLEVEL": 10,
 
 "REDIS_PORT": 6379,
-"REDIS_SHARDS": ["localhost"],
+"REDIS_SHARDS": ["redis"],
 
-"ACCOUNT_QUEUE_REDIS_HOSTNAME": "localhost",
+"ACCOUNT_QUEUE_REDIS_HOSTNAME": "redis",
 "ACCOUNT_QUEUE_REDIS_DB": 3,
 
-"EVENT_QUEUE_REDIS_HOSTNAME": "localhost",
+"EVENT_QUEUE_REDIS_HOSTNAME": "redis",
 "EVENT_QUEUE_REDIS_DB": 3,
 
 "BASE_ALIVE_THRESHOLD": 480,
