@@ -25,7 +25,7 @@ sync-engine-api:
   privileged: false
   restart: always
   ports:
-  - 9998:9999
+  - 9999:9999
   links:
   - mysql
   - redis
