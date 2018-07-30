@@ -11,8 +11,9 @@ USER syncengine3
 WORKDIR /home/syncengine3
 
 ADD . /home/syncengine3/
+USER root
 RUN /home/syncengine3/docker.user.sh
-
+USER syncengine3
 
 
 
