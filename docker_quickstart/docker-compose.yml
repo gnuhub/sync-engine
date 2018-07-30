@@ -6,10 +6,25 @@ mysql:
   - 3308:3306
   environment:
   - MYSQL_ROOT_PASSWORD=root
-sync-engine:
-  image: gnuhub/sync-engine:latest
+redis:
+  image: redis:latest
+  privileged: false
   restart: always
   ports:
-    - '9999:9999'
+  - 6380:6379
+sync-engine:
+  image: index.docker.io/gnuhub/sync-engine:latest
+  privileged: false
+  restart: always
   links:
-    - mysql
+  - mysql
+  - redis
+  command: bash /home/syncengine3/docker.start.engine.sh
+sync-engine-api:
+  image: index.docker.io/gnuhub/sync-engine:latest
+  privileged: false
+  restart: always
+  links:
+  - mysql
+  - redis
+  command: bash /home/syncengine3/docker.start.api.sh
