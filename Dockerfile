@@ -1,4 +1,4 @@
-FROM gnuhub/sync-engine:87ab5bee
+FROM gnuhub/sync-engine:latest
 
 
 
