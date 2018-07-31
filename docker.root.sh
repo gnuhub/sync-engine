@@ -80,5 +80,7 @@ echo "setup py27 using Anaconda Done"
 echo 'UTC' | tee /etc/timezone
 
 mkdir -p /var/lib/inboxapp/parts
+# Y18-93 sync-engine Permission denied: '/var/lib/inboxapp/parts/
+chmod -R 777 /var/lib/inboxapp/parts
 
 
