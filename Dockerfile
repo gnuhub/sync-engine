@@ -1,7 +1,7 @@
 FROM gnuhub/sync-engine:latest
 
 
-
+USER root
 ADD docker.root.sh /src2/docker.root.sh
 RUN /src2/docker.root.sh
 
