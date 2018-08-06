@@ -8,9 +8,9 @@ cd $CMD_PATH
 # fi
 # python oh-my-tuna.py
 
-useradd --create-home --no-log-init --shell /bin/bash syncengine3
-adduser syncengine3 sudo
-echo 'syncengine3:syncengine3' | chpasswd
+useradd --create-home --no-log-init --shell /bin/bash syncengine4
+adduser syncengine4 sudo
+echo 'syncengine4:syncengine4' | chpasswd
 echo 'root:root' | chpasswd
 
 apt-get clean -y
