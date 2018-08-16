@@ -154,7 +154,7 @@ def threads(namespace_id, subject, from_addr, to_addr, cc_addr, bcc_addr,
         query = query.filter(Thread.public_id.notin_(not_thread_public_ids_array))
 
     if has_attachments is not None:
-        query = query.filter(Thread.attachments == has_attachments)
+        query = query.filter(Thread.has_attachments == has_attachments)
 
     if view == 'count':
         return {"count": query.one()[0]}
