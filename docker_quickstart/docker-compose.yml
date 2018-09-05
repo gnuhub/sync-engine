@@ -19,7 +19,7 @@ sync-engine:
   links:
   - mysql
   - redis
-  command: bash /home/syncengine3/docker.start.engine.sh
+  command: bash /home/syncengine4/docker.start.engine.sh
 sync-engine-api:
   image: index.docker.io/gnuhub/sync-engine:latest
   privileged: false
@@ -29,4 +29,4 @@ sync-engine-api:
   links:
   - mysql
   - redis
-  command: bash /home/syncengine3/docker.start.api.sh
+  command: bash /home/syncengine4/docker.start.api.sh
