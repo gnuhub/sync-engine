@@ -5,6 +5,6 @@ source activate py27
 # CMD_PATH=$(cd `dirname $0`; pwd)
 cd /home/syncengine3/
 # after mysql started
-sleep 2
+sleep 30
 PYTHONPATH=`pwd` NYLAS_ENV=dev bin/create-db
 PYTHONPATH=`pwd` NYLAS_ENV=dev ./bin/inbox-start
