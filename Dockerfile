@@ -1,4 +1,5 @@
-FROM gnuhub/sync-engine:latest
+FROM continuumio/miniconda3:latest
+#FROM gnuhub/sync-engine:latest
 
 
 USER root
